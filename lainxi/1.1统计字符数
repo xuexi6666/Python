@@ -1,0 +1,15 @@
+wordstring="""
+in at aij aji jio qwioqiw qwji qjiwop
+in at aij aji jio qwioqiw qwji qjiwop
+"""
+#将标点符号替换
+wordstring=wordstring.replace('.','')
+#分割单词
+wordlist=wordstring.split()
+wordfreq=[]
+for w in wordlist:
+    #统计单词个数
+    wordfreq.append(wordlist.count(w))
+#count统计wordlist中w元素个数，  zip迭代对象做参数这里转为字典，被dict输出
+d=dict(zip(wordlist,wordfreq))
+print(d)
