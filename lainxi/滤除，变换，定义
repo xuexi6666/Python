@@ -1,0 +1,37 @@
+#filter滤除
+def f1(x):#提供变换函数
+    return x>10#规则
+data1 =[60,5,4,6,31,315,6,56,2656,5]
+filterd=filter(f1,data1)#滤除条件f1，遍历data1
+data2=list(filterd)#转为列表
+print(data2)
+
+#map变换或者映射
+def f1(x):#提供变换函数
+    return x*2#规则
+data1 =[60,5,4,6,31,315,6,56,2656,5]
+mapped=map(f1,data1)#条件f1，遍历data1乘2
+data2=list(mapped)#转为列表
+print(data2)
+
+#lambda不需要return
+def calc(opr):
+    if opr =='+':
+        return lambda a,b:(a+b)#add
+    else:
+        return lambda a,b:(a-b)#sub
+
+f1=calc('+')
+f2=calc('-')
+print("10 + 5 ={0}".format(f1(10,5)))
+print("10 - 5 ={0}".format(f2(10,5)))
+
+data1 =[60,5,4,6,31,315,6,56,2656,5]
+filterd=filter(lambda  x:(x>10),data1)#滤除条件f1，遍历data1
+data2=list(filterd)#转为列表
+print(data2)
+
+data1 =[60,5,4,6,31,315,6,56,2656,5]
+filterd=filter(lambda x:(x*2),data1)#滤除条件f1，遍历data1
+data2=list(filterd)#转为列表
+print(data2)
