@@ -1,0 +1,76 @@
+#————init————
+class Dog:
+    def __init__(self,name,age,sex='13'):#第一个参数必须self
+        self.name = name
+        self.age = age
+        self.sex = sex
+
+d1 = Dog('球球',2)
+d2 = Dog('hh',1,'jb')
+d3 = Dog(name='tb',sex='13',age=3)
+print('{0}:{1}sui{2}。'.format(d1.name,d1.age,d1.sex))
+print('{0}:{1}sui{2}。'.format(d2.name,d2.age,d2.sex))
+print('{0}:{1}sui{2}。'.format(d3.name,d3.age,d3.sex))
+
+
+
+#coding=utf-8
+class Account:
+    __interest_rate =0.058
+
+    def __init__(self,owner,amount):
+        self.owner = owner
+        self.__amount = amount
+
+    def __get_info(self):
+        return ("{0}money:{1}lilv:{2}.".format(self.owner,self.__amount,Account.__interest_rate))
+    def desc(self):
+        print(self.__get_info())
+
+account=Account('Tony',80000.0)
+account.desc()
+
+#get，set
+class Dog:
+    def __init__(self,name,age,sex='13'):
+        self.name = name
+        self.__age = age
+    def run(self):
+        print("{}run..".format(self.name))
+#定义get（）返回私有变量——age
+    def get_age(self):
+        return self.__age
+#定义set（）通过age参数更新私有变量——age
+    def set_age(self,age):
+        self.__age =age
+
+dog =Dog('qiuqiu',2)
+print('dogold:{}'.format(dog.get_age()))
+dog.set_age(3)
+print('xiugaiold:{}'.format(dog.get_age()))
+
+#类的属性替代set，get
+class Dog:
+    def __init__(self,name,age,sex='13'):
+        self.name = name
+        self.__age = age
+    def run(self):
+        print("{}run..".format(self.name))
+#定义get（）返回私有变量——age
+   # def get_age(self):
+    @property
+    def age(self):
+        return self.__age
+#定义set（）通过age参数更新私有变量——age
+  #  def set_age(self,age):
+    @age.setter
+    def age(self,age):
+        self.__age =age
+
+dog =Dog('qiuqiu',2)
+#print('dogold:{}'.format(dog.get_age()))
+print('dogold:{}'.format(dog.age))
+#dog.set_age(3)
+dog.age=3
+#print('xiugaiold:{}'.format(dog.get_age()))
+print('dogold:{}'.format(dog.age))
