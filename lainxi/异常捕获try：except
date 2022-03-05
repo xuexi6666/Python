@@ -1,0 +1,30 @@
+#异常捕获
+i =input('请输入数字')
+n=6666
+try:
+    result=n/int(i)
+    print(result)
+    print('{0}/{1}={2}'.foramt(n,i,result))
+except(ZeroDivisionError,ValueError) as e:
+    print("发生异常：{}".format(e))
+finally:
+    print('资源释放')
+    
+    #自定义异常捕获raise手动触发
+class bingoException(Exception):
+    def __init__(self,message):
+        super().__init__(message)
+
+i =input('请输入数字')
+n=6666
+try:
+    result=n/int(i)
+    print(result)
+    print('{0}/{1}={2}'.foramt(n,i,result))
+except ZeroDivisionError as e:
+    #print("发生异常：{}".format(e))
+    raise bingoException('buchuyi0')
+except ValueError as e:
+    raise bingoException('wuxiao')
+finally:
+    print('资源释放')
